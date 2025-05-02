@@ -1,0 +1,14 @@
+def caesar(text, shift):
+    return ''.join(
+        chr((ord(c) - base + shift) % 26 + base) if c.isalpha() else c
+        for c in text
+        for base in [ord('A') if c.isupper() else ord('a')] if c.isalpha()
+    )
+
+msg = input("Message: ")
+s = int(input("Shift: "))
+enc = caesar(msg, s)
+dec = caesar(enc, -s)
+
+print("Encrypted:", enc)
+print("Decrypted:", dec)
